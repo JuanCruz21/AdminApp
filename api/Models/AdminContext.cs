@@ -1,19 +1,19 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using api.Models.Comercial;
+using api.Models.Cuenta;
+using api.Models.Parametrizacion;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Models
+namespace api.Models;
+
+public class AdminContext : DbContext
 {
-    public class AdminContext : DbContext
+    public AdminContext(DbContextOptions<AdminContext> options) : base(options)
     {
-        public AdminContext(DbContextOptions<AdminContext> options)
-            : base(options)
-        {
-        }
-        public DbSet<Usuarios> Usuarios { get; set; }
-        public DbSet<Movimientos> Movimientos { get; set; }
-        public DbSet<Productos> Productos { get; set; }
     }
+
+    public DbSet<Usuario> Usuarios { get; set; }
+
+    public DbSet<Movimiento> Movimientos { get; set; }
+
+    public DbSet<Producto> Productos { get; set; }
 }
