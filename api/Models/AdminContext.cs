@@ -12,7 +12,7 @@ namespace api.Models
             : base(options)
         {
         }
-        public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<usuarios> usuarios { get; set; }
         public DbSet<Movimientos> Movimientos { get; set; }
         public DbSet<Productos> Productos { get; set; }
     }

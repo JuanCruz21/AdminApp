@@ -15,13 +15,13 @@ namespace api.Models
         public int Id { get; set; }
         public enum TipoMovimiento { Ingreso, Egreso }
         public TipoMovimiento Tipo { get; set; }
-        public int Cantidad { get; set; }
-        public DateTime Fecha { get; set; }
         public int IdProducto { get; set; }
         [ForeignKey("IdProducto")]
         public required Productos productos { get; set; }
         public int IdUsuario { get; set; }
         [ForeignKey("IdUsuario")]
-        public required Usuarios usuarios { get; set; }
+        public required usuarios usuarios { get; set; }
+        public int Cantidad { get; set; }
+        public DateTime Fecha { get; set; }
     }
 }

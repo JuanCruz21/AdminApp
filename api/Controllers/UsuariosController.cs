@@ -35,17 +35,17 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        [Authorize]
-        public async Task<ActionResult<IEnumerable<Usuarios>>> GetUsuarios()
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<usuarios>>> GetUsuarios()
         {
-            return await _context.Usuarios.ToListAsync();
+            return await _context.usuarios.ToListAsync();
         }
 
         // Obtener un usuario por ID
         [HttpGet("{id}")]
-        public async Task<ActionResult<Usuarios>> GetUsuario(int id)
+        public async Task<ActionResult<usuarios>> GetUsuario(int id)
         {
-            var usuario = await _context.Usuarios.FindAsync(id);
+            var usuario = await _context.usuarios.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
@@ -56,9 +56,9 @@ namespace api.Controllers
         // Crear un nuevo usuario
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<Usuarios>> PostUsuario(Usuarios usuario)
+        public async Task<ActionResult<usuarios>> PostUsuario(usuarios usuario)
         {
-            _context.Usuarios.Add(usuario);
+            _context.usuarios.Add(usuario);
             await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetUsuario), new { id = usuario.usuarioid }, usuario);
         }
@@ -66,7 +66,7 @@ namespace api.Controllers
         // Actualizar un usuario existente
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutUsuario(int id, Usuarios usuario)
+        public async Task<IActionResult> PutUsuario(int id, usuarios usuario)
         {
             if (id != usuario.usuarioid)
             {
@@ -99,13 +99,13 @@ namespace api.Controllers
         [Authorize]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
-            var usuario = await _context.Usuarios.FindAsync(id);
+            var usuario = await _context.usuarios.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
             }
 
-            _context.Usuarios.Remove(usuario);
+            _context.usuarios.Remove(usuario);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -113,13 +113,13 @@ namespace api.Controllers
 
         private bool UsuarioExists(int id)
         {
-            return _context.Usuarios.Any(e => e.usuarioid == id);
+            return _context.usuarios.Any(e => e.usuarioid == id);
         }
 
-        private Usuarios? AutenticarUsuario(UsuariosLogin usuarioLogin)
+        private usuarios? AutenticarUsuario(UsuariosLogin usuarioLogin)
         {
             
-            var usuario = _context.Usuarios.Where(o=>o.email.ToUpper() ==usuarioLogin.Email.ToUpper() && o.contrasena==usuarioLogin.Contrasena).FirstOrDefault();
+            var usuario = _context.usuarios.Where(o=>o.email.ToUpper() ==usuarioLogin.Email.ToUpper() && o.contrasena==usuarioLogin.Contrasena).FirstOrDefault();
             // Aquí debes verificar las credenciales contra la base de datos.
             // Esta es una versión simplificada.
             if (usuario!= null)
@@ -128,7 +128,7 @@ namespace api.Controllers
             return null;
         }
 
-        private string GenerarTokenJWT(Usuarios usuario)
+        private string GenerarTokenJWT(usuarios usuario)
         {
             var key = _config["Jwt:Key"];
             if (string.IsNullOrEmpty(key))
