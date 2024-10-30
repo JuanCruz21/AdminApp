@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Login extends StatelessWidget {
+  static const name = 'Login';
   const Login({super.key});
 
   @override

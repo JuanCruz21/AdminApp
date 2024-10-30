@@ -13,7 +13,7 @@ namespace api.Models
         {
         }
         public DbSet<usuarios> usuarios { get; set; }
-        public DbSet<Movimientos> Movimientos { get; set; }
-        public DbSet<Productos> Productos { get; set; }
+        public DbSet<Movimientos> movimientos { get; set; }
+        public DbSet<Productos> productos { get; set; }
     }
 }

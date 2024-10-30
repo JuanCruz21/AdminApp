@@ -8,20 +8,19 @@ using api.Models;
 
 namespace api.Models
 {
+
+    public enum TipoMovimiento { Ingreso, Salida }
     public class Movimientos
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public enum TipoMovimiento { Ingreso, Salida }
-        public TipoMovimiento Tipo { get; set; }
-        public int IdProducto { get; set; }
-        [ForeignKey("IdProducto")]
-        public required Productos productos { get; set; }
-        public int IdUsuario { get; set; }
-        [ForeignKey("IdUsuario")]
-        public required usuarios usuarios { get; set; }
-        public int Cantidad { get; set; }
-        public DateTime Fecha { get; set; }
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+    public int  movimientoid{ get; set; }
+    public TipoMovimiento tipomovimiento { get; set; }
+    public int cantidad { get; set; }
+    public DateTime fecha { get; set; }
+    public int idproducto { get; set; }
+    public int idusuario { get; set; }
+    [ForeignKey("idproducto")] public virtual Productos Producto { get; set; } = null!;
+    [ForeignKey("idusuario")] public virtual usuarios Usuario { get; set; } = null!;
     }
 }

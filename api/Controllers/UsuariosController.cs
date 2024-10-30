@@ -31,11 +31,11 @@ namespace api.Controllers
                 return Unauthorized("Credenciales incorrectas");
 
             var token = GenerarTokenJWT(usuario);
-            return Ok(new { token });
+            return Ok(new { token, usuario });
         }
 
         [HttpGet]
-        [AllowAnonymous]
+        [Authorize]
         public async Task<ActionResult<IEnumerable<usuarios>>> GetUsuarios()
         {
             return await _context.usuarios.ToListAsync();
@@ -43,6 +43,7 @@ namespace api.Controllers
 
         // Obtener un usuario por ID
         [HttpGet("{id}")]
+        [Authorize]
         public async Task<ActionResult<usuarios>> GetUsuario(int id)
         {
             var usuario = await _context.usuarios.FindAsync(id);

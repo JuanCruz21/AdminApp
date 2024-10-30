@@ -11,10 +11,10 @@ namespace api.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
-        public string Nombre { get; set; } = string.Empty;
-        public string Descripcion { get; set; } = string.Empty;
-        public int Precio { get; set; }
-        public int Stock { get; set; }
+        public int productoid { get; set; }
+        public string nombre { get; set; } = string.Empty;
+        public string descripcion { get; set; } = string.Empty;
+        public decimal precio { get; set; }
+        public int cantidad { get; set; }
     }
 }

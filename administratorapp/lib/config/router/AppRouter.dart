@@ -1,10 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:administratorapp/presentation/Screens/Auth/Login.dart';
+import 'package:go_router/go_router.dart';
 
-class AppRouter extends StatelessWidget {
-  const AppRouter({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
+final appRouter = GoRouter(routes: [
+  GoRoute(
+    path: '/',
+    name: Login.name,
+    builder: (context, state) => const Login(),
+  ),
+]);
