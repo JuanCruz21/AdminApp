@@ -13,7 +13,7 @@ namespace api.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        public enum TipoMovimiento { Ingreso, Egreso }
+        public enum TipoMovimiento { Ingreso, Salida }
         public TipoMovimiento Tipo { get; set; }
         public int IdProducto { get; set; }
         [ForeignKey("IdProducto")]
