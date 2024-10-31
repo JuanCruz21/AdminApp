@@ -1,11 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using api.Models.Comercial;
 using api.Models.Cuenta;
 
-namespace api.Models;
+namespace api.Models.Comercial;
 
-public class Movimientos
+public class Movimiento
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

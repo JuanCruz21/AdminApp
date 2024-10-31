@@ -2,7 +2,7 @@ namespace api.Core.Parametrizacion.Movements.Response;
 
 public record MovementResponse
 {
-    public int movimientoid { get; set; }
+    public int id { get; set; }
 
     public string tipomovimiento { get; set; }
 
@@ -12,5 +12,9 @@ public record MovementResponse
 
     public int idproducto { get; set; }
 
+    public string? NombreProducto { get; set; }
+
     public int idusuario { get; set; }
+
+    public string? NombreUsuario { get; set; }
 }
