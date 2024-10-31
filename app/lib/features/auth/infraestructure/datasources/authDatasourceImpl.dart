@@ -1,10 +1,12 @@
 import 'package:app/config/constants/environment.dart';
 import 'package:app/features/auth/domain/domain.dart';
+import 'package:app/features/auth/infraestructure/errors/AuthErrors.dart';
 import 'package:app/features/auth/infraestructure/mappers/usuarioMapper.dart';
 import 'package:dio/dio.dart';
 
 class Authdatasourceimpl extends Authdatasources {
   final dio = Dio(BaseOptions(baseUrl: Enviroment.baseUrl));
+
   @override
   Future<Usuario> getCurrentUser(String token) {
     // TODO: implement getCurrentUser
@@ -22,7 +24,7 @@ class Authdatasourceimpl extends Authdatasources {
       final user = Usuariomapper.userJsonToEntity(response.data);
       return user;
     } catch (e) {
-      throw Exception('Error al iniciar sesion');
+      throw Exception('Failed to login $e');
     }
   }
 

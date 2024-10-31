@@ -49,6 +49,11 @@ class LoginScreen extends StatelessWidget {
 
 class _LoginForm extends ConsumerWidget {
   const _LoginForm();
+  void showMessage(BuildContext context, String message) {
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context)
+        .showSnackBar(SnackBar(content: Text(message)));
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
