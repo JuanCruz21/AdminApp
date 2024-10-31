@@ -15,7 +15,7 @@ namespace api.Models
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int  movimientoid{ get; set; }
-    public TipoMovimiento tipomovimiento { get; set; }
+    public string tipomovimiento { get; set; } = string.Empty;
     public int cantidad { get; set; }
     public DateTime fecha { get; set; }
     public int idproducto { get; set; }
