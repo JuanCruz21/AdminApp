@@ -1,0 +1,49 @@
+﻿<changelist name="Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]" date="1730345722220" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Merge at 30/10/2024 10:32 p. m. [Changes]" />
+  <binary>
+    <option name="BEFORE_PATH" value="api/obj/Debug/net8.0/ref/api.dll" />
+    <option name="AFTER_PATH" value="api/obj/Debug/net8.0/ref/api.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/api.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="api/bin/Debug/net8.0/api.dll" />
+    <option name="AFTER_PATH" value="api/bin/Debug/net8.0/api.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/api1.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="api/obj/project.nuget.cache" />
+    <option name="AFTER_PATH" value="api/obj/project.nuget.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/project.nuget.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="api/obj/Debug/net8.0/refint/api.dll" />
+    <option name="AFTER_PATH" value="api/obj/Debug/net8.0/refint/api.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/api2.dll" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="api/obj/Debug/net8.0/api.csproj.CoreCompileInputs.cache" />
+    <option name="AFTER_PATH" value="api/obj/Debug/net8.0/api.csproj.CoreCompileInputs.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/api.csproj.CoreCompileInputs.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="api/bin/Debug/net8.0/api.pdb" />
+    <option name="AFTER_PATH" value="api/bin/Debug/net8.0/api.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/api.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="api/obj/Debug/net8.0/api.AssemblyInfoInputs.cache" />
+    <option name="AFTER_PATH" value="api/obj/Debug/net8.0/api.AssemblyInfoInputs.cache" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/api.AssemblyInfoInputs.cache" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="api/obj/Debug/net8.0/api.pdb" />
+    <option name="AFTER_PATH" value="api/obj/Debug/net8.0/api.pdb" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/api1.pdb" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" value="api/obj/Debug/net8.0/api.dll" />
+    <option name="AFTER_PATH" value="api/obj/Debug/net8.0/api.dll" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/.idea.AdminApp/.idea/shelf/Uncommitted_changes_before_Merge_at_30_10_2024_10_32_p_ m__[Changes]/api3.dll" />
+  </binary>
+</changelist>

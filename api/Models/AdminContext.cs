@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using api.Models.Cuenta;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Models
@@ -12,7 +13,8 @@ namespace api.Models
             : base(options)
         {
         }
-        public DbSet<usuarios> usuarios { get; set; }
+
+        public DbSet<Usuario> usuarios { get; set; }
         public DbSet<Movimientos> movimientos { get; set; }
         public DbSet<Productos> productos { get; set; }
     }

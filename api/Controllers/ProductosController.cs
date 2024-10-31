@@ -24,10 +24,11 @@ namespace api.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateProducto([FromBody] CrearProducto spec)
         {
-            // if (!spec.ValidarProducto(out var errors))
-            // {
-            //     return BadRequest(errors);
-            // }
+            
+            if (!spec.ValidarProducto(out var errors))
+            {
+                return BadRequest(errors);
+            }
 
             var producto = new Productos
             {
@@ -113,6 +114,7 @@ namespace api.Controllers
 
             return NoContent();
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProducto(int id)
         {
@@ -121,10 +123,10 @@ namespace api.Controllers
             {
                 return NotFound();
             }
+
             _context.productos.Remove(producto);
             await _context.SaveChangesAsync();
             return NoContent();
         }
     }
-
 }

@@ -2,9 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using api.Core.Account.Request;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using api.Models;
+using api.Models.Cuenta;
 using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
@@ -15,15 +17,16 @@ namespace api.Controllers
     {
         private readonly IConfiguration _config;
         private readonly AdminContext _context;
+
         public UsuariosController(IConfiguration config, AdminContext context)
         {
             _config = config;
-             _context = context;
+            _context = context;
         }
 
         [AllowAnonymous]
         [HttpPost("login")]
-        public IActionResult Login([FromBody] UsuariosLogin usuarioLogin)
+        public IActionResult Login([FromBody] UsuarioLogin usuarioLogin)
         {
             var usuario = AutenticarUsuario(usuarioLogin);
 
@@ -36,7 +39,7 @@ namespace api.Controllers
 
         [HttpGet]
         [Authorize]
-        public async Task<ActionResult<IEnumerable<usuarios>>> GetUsuarios()
+        public async Task<ActionResult<IEnumerable<Usuario>>> GetUsuarios()
         {
             return await _context.usuarios.ToListAsync();
         }
@@ -44,32 +47,33 @@ namespace api.Controllers
         // Obtener un usuario por ID
         [HttpGet("{id}")]
         [Authorize]
-        public async Task<ActionResult<usuarios>> GetUsuario(int id)
+        public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
             var usuario = await _context.usuarios.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
             }
+
             return usuario;
         }
 
         // Crear un nuevo usuario
         [HttpPost]
         [AllowAnonymous]
-        public async Task<ActionResult<usuarios>> PostUsuario(usuarios usuario)
+        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
             _context.usuarios.Add(usuario);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.usuarioid }, usuario);
+            return CreatedAtAction(nameof(GetUsuario), new { id = usuario.Usuarioid }, usuario);
         }
 
         // Actualizar un usuario existente
         [HttpPut("{id}")]
         [Authorize]
-        public async Task<IActionResult> PutUsuario(int id, usuarios usuario)
+        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
         {
-            if (id != usuario.usuarioid)
+            if (id != usuario.Usuarioid)
             {
                 return BadRequest();
             }
@@ -114,22 +118,24 @@ namespace api.Controllers
 
         private bool UsuarioExists(int id)
         {
-            return _context.usuarios.Any(e => e.usuarioid == id);
+            return _context.usuarios.Any(e => e.Usuarioid == id);
         }
 
-        private usuarios? AutenticarUsuario(UsuariosLogin usuarioLogin)
+        private Usuario? AutenticarUsuario(UsuarioLogin usuarioLogin)
         {
-            
-            var usuario = _context.usuarios.Where(o=>o.email.ToUpper() ==usuarioLogin.Email.ToUpper() && o.contrasena==usuarioLogin.Contrasena).FirstOrDefault();
+            var usuario = _context.usuarios.Where(o =>
+                    o.Email.ToUpper() == usuarioLogin.Email.ToUpper() && o.Contrasena == usuarioLogin.Contrasena)
+                .FirstOrDefault();
+
             // Aquí debes verificar las credenciales contra la base de datos.
             // Esta es una versión simplificada.
-            if (usuario!= null)
+            if (usuario != null)
                 return usuario;
 
             return null;
         }
 
-        private string GenerarTokenJWT(usuarios usuario)
+        private string GenerarTokenJWT(Usuario usuario)
         {
             var key = _config["Jwt:Key"];
             if (string.IsNullOrEmpty(key))
@@ -142,9 +148,9 @@ namespace api.Controllers
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, usuario.email),
+                new Claim(JwtRegisteredClaimNames.Sub, usuario.Email),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-                new Claim("nombre", usuario.nombre)
+                new Claim("nombre", usuario.Nombre)
             };
 
             var token = new JwtSecurityToken(
@@ -156,6 +162,5 @@ namespace api.Controllers
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
-
     }
 }
